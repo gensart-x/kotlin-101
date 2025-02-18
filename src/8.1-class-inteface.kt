@@ -11,3 +11,27 @@ class Worker(override val name: String, override val age: Int) : Human {
         println("Hello, my name is $name")
     }
 }
+
+// class even able to inherit multiple interfaces
+interface Flyable {
+    fun fly()
+}
+
+interface Swimmer {
+    fun swim()
+}
+
+class Duck : Flyable, Swimmer {
+    override fun fly(): Unit = println("I'm flying")
+
+    override fun swim(): Unit = println("I'm swimming")
+}
+
+fun main() {
+    val worker1 = Worker("Jason", 25)
+    worker1.sayHello()
+
+    val duck1 = Duck()
+    duck1.fly()
+    duck1.swim()
+}
